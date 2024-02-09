@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Image Clustering Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Clustering Results</h1>
+        <!-- Display clustered images here -->
+        {% if clustered_images %}
+            <h2>Clustered Images:</h2>
+            {% for label, images, embedding in clustered_images %}
+                <div class="cluster">
+                    <p>Cluster {{ label }}</p>
+                    <p>Images: {{ images }}</p>
+                    <p>Text Embedding: {{ embedding }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

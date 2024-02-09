@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Clustered Images</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Clustered Images</h1>
+        {% for label, images in clustered_images.items() %}
+            <div class="cluster">
+                <h2>Cluster {{ label }}</h2>
+                {% for image in images %}
+                    <img src="{{ url_for('static', filename=image) }}" alt="Image in Cluster {{ label }}">
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
